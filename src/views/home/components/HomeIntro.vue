@@ -11,7 +11,7 @@ const emit = defineEmits(['onAddCount'])
 /* v2.7.x内置了defineProps编译器宏，直接在<script setup>内部使用来接收父组件传过来的数据 */
 defineProps({
     message: { type: Object, default: () => { } },
-    count: { type: Number, default: () => 0, require: true }
+    count: { type: Number, require: true }
 })
 
 watch(route, () => {
@@ -40,7 +40,7 @@ const handleAboutPage = () => {
 <style>
 .btn {
     margin: 0 15px;
-    width: 100px;
+    padding: 0 10px;
     height: 50px;
     font-size: 20px;
 }

@@ -1,9 +1,16 @@
 <script setup>
-import { shallowRef } from 'vue'
+import { ref, shallowRef } from 'vue'
 import { useRouter } from '@/hooks/useRouter'
+import AboutInfo from './components/AboutInfo.vue'
 
 const router = useRouter()
 const intro = shallowRef(`I'm About`)
+
+/* 可以通过ref来获取子组件实例已经子组件暴露出来的property */
+const aboutInfo = ref(null)
+const handleReceive = () => {
+    alert(aboutInfo.value?.message)
+}
 
 const handleBackHome = () => {
     router.push('/')
@@ -13,13 +20,16 @@ const handleBackHome = () => {
 <template>
     <div>
         <h1>{{ intro }}</h1>
-        <button class="btn" @click="handleBackHome">返回首页</button>
+        <button class="about-btn" @click="handleBackHome">返回首页</button>
+        <button class="about-btn" @click="handleReceive">接收子组件暴露出来的内容</button>
+        <AboutInfo ref="aboutInfo" />
     </div>
 </template>
 
 <style scoped>
-.btn {
-    width: 100px;
+.about-btn {
+    margin: 0 15px;
+    padding: 0 10px;
     height: 50px;
     font-size: 20px;
 }

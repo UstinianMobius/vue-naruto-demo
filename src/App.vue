@@ -1,28 +1,10 @@
 <script setup>
-import { ref, reactive } from 'vue'
-import HelloNaruto from './components/HelloNaruto.vue'
-
-const count = ref(0)
-
-const message = reactive({
-  greeting: '❤️ Hello',
-  name: 'Naruto'
-})
-
-const handleAddCount = () => {
-  count.value ++
-}
-
 </script>
 
 <template>
   <div id="app">
     <img src="./assets/naruto.jpg" />
-    <HelloNaruto 
-      :message="message" 
-      :count="count" 
-      @onAdd="handleAddCount"
-    />
+    <router-view></router-view>
   </div>
 </template>
 

@@ -8,10 +8,12 @@ const intro = shallowRef(`I'm About`)
 
 /* 可以通过ref来获取子组件实例以及当前组件暴露出来的property */
 const aboutInfo = ref(null)
+const message = ref('')
 const handleReceive = () => {
-    alert(aboutInfo.value?.message)
+    message.value = aboutInfo.value?.message
 }
 
+/* 返回首页 */
 const handleBackHome = () => {
     router.push('/')
 }
@@ -20,6 +22,7 @@ const handleBackHome = () => {
 <template>
     <div>
         <h1>{{ intro }}</h1>
+        <h1>{{ message }}</h1>
         <button class="about-btn" @click="handleBackHome">返回首页</button>
         <button class="about-btn" @click="handleReceive">接收子组件暴露出来的内容</button>
         <AboutInfo ref="aboutInfo" />

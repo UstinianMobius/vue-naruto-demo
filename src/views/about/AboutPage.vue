@@ -6,7 +6,7 @@ import AboutInfo from './components/AboutInfo.vue'
 const router = useRouter()
 const intro = shallowRef(`I'm About`)
 
-/* 可以通过ref来获取子组件实例已经子组件暴露出来的property */
+/* 可以通过ref来获取子组件实例以及当前组件暴露出来的property */
 const aboutInfo = ref(null)
 const handleReceive = () => {
     alert(aboutInfo.value?.message)
